@@ -8,13 +8,16 @@ class MealPlan extends Component {
 renderMeals() {
     return _.map(this.state.meals, meal => <li>{meal}</li>);
   }
+  renderState(event){
+    this.setState({meal: event.target.value})
+  }
 render() {
     return(
       <div>
         <h2>Today you should eat this</h2>
         <input
-          onChange={e => this.setState({meal: e.target.value})}
-          value={this.state.meal}
+          value={this.state.value}
+          onChange={this.renderState.bind(this)}
           type="text"
         />
         <button
